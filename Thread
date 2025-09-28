@@ -1,0 +1,20 @@
+class MyThread extends Thread {
+    @Override
+    public void run() {
+        System.out.println(Thread.currentThread().getId() + " is running.");
+    }
+}
+
+public class MultiThreadDemo {
+    public static void main(String[] args) {
+        // 创建 3 个线程
+        MyThread t1 = new MyThread();
+        MyThread t2 = new MyThread();
+        MyThread t3 = new MyThread();
+
+        // 启动线程
+        t1.start();
+        t2.start();
+        t3.start();
+    }
+}

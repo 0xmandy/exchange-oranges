@@ -1,0 +1,53 @@
+class Node {
+    int data;
+    Node next;
+
+    // 构造函数
+    public Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+class LinkedList {
+    private Node head;
+
+    // 构造函数
+    public LinkedList() {
+        head = null;
+    }
+
+    // 向链表添加新节点
+    public void add(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node current = head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = newNode;
+        }
+    }
+
+    // 打印链表的所有节点
+    public void display() {
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.data + " -> ");
+            current = current.next;
+        }
+        System.out.println("null");
+    }
+}
+
+public class LinkedListDemo {
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.display();  // 输出: 10 -> 20 -> 30 -> null
+    }
+}

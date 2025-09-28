@@ -1,0 +1,57 @@
+class Stack {
+    private int maxSize;
+    private int top;
+    private int[] stack;
+
+    // 构造函数
+    public Stack(int size) {
+        maxSize = size;
+        stack = new int[size];
+        top = -1;
+    }
+
+    // 入栈操作
+    public void push(int value) {
+        if (top < maxSize - 1) {
+            stack[++top] = value;
+            System.out.println(value + " pushed to stack");
+        } else {
+            System.out.println("Stack Overflow");
+        }
+    }
+
+    // 出栈操作
+    public void pop() {
+        if (top >= 0) {
+            System.out.println(stack[top--] + " popped from stack");
+        } else {
+            System.out.println("Stack Underflow");
+        }
+    }
+
+    // 获取栈顶元素
+    public void peek() {
+        if (top >= 0) {
+            System.out.println("Top element is " + stack[top]);
+        } else {
+            System.out.println("Stack is empty");
+        }
+    }
+}
+
+public class StackDemo {
+    public static void main(String[] args) {
+        Stack stack = new Stack(3);
+
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        stack.push(40);  // Stack Overflow
+
+        stack.peek();    // 输出栈顶元素
+        stack.pop();     // 弹出栈顶元素
+        stack.pop();
+        stack.pop();
+        stack.pop();     // Stack Underflow
+    }
+}
